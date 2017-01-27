@@ -1,0 +1,16 @@
+ <div >
+ 	<div ng-repeat="itemMenu in list.items" class="row col-md-12 col-sm-8 border" >
+ 		<div class="col-md-4 col-sm-4" >
+      		{{itemMenu.name}}
+		</div>
+		<div class="col-md-1 col-sm-1" >
+      		{{itemMenu.short_name}}
+		</div>
+		<div class="col-md-4 col-sm-4" >
+      		{{itemMenu.description}}
+		</div>
+	 	<div class="col-md-3 col-sm-3"">
+      		<button value="" ng-click="list.onRemove({index:$index})" class="btn btn-danger">remove </button>
+    	</div>
+ 	</div>
+ </div>
