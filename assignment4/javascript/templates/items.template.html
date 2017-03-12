@@ -1,0 +1,16 @@
+<div>
+<a ui-sref="tab1">go to categories</a>
+<ul>
+  <li ng-repeat="item in $ctrl.items">
+  <div>name:{{item.name}}              </div>  
+  <div ng-if="item.description!=null">description:{{item.description}}  	  </div>  
+  <div ng-if="item.small_portion_name">small portion name:{{item.small_portion_name}}</div>
+  <div ng-if="item.large_portion_name">large portion name:{{item.large_portion_name}}</div>
+  <div ng-if="item.price_small!=null">small price:{{item.price_small}}		  </div> 
+
+  <div ng-if="item.price_large">price large:{{item.price_large}}</div>
+
+
+  </li>
+</ul>
+</div>
