@@ -22,12 +22,16 @@ function Item(name,desc)
 NarrowItDownController.$inject=['$scope','GetItemsMenuService'];
 function NarrowItDownController($scope,GetItemsMenuService)
 {	var contrl=this;
+	var showMessage=false;
 	contrl.getFilteredItems= function(){
+
 		return GetItemsMenuService.getItems();
 	}
 	contrl.search=function(desc)
 	{	
 		GetItemsMenuService.refresh(desc);
+		showMessage=GetItemsMenuService.getItems().length==0;
+		
 	}
 	contrl.removeItem=function(number)
 	{
@@ -35,6 +39,11 @@ function NarrowItDownController($scope,GetItemsMenuService)
 		GetItemsMenuService.removeItem(number);
 	}
 	
+	contrl.isShowMessage=function()
+	{
+		console.log(showMessage);
+		return showMessage;
+	}
 
 
 
@@ -115,6 +124,7 @@ function MenuItems()
 		templateUrl:'itemsMenu.html',
 		scope: {
 			items:'<',
+			showMessage:'<',
 			onRemove:'&'
 		},
 		controller: DirectiveController,
